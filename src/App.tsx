@@ -23,7 +23,6 @@ import {
   // isWordInWordList,
   isWinningWord,
   solution,
-  consonant,
 } from './lib/words'
 import { addStatsForCompletedGame, loadStats } from './lib/stats'
 import {
