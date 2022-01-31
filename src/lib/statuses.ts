@@ -1,63 +1,74 @@
 import { solution } from './words'
-
+import * as Hangul from 'hangul-js'
 export type CharStatus = 'absent' | 'present' | 'correct'
 
 export type CharValue =
-  | 'Q'
-  | 'W'
-  | 'E'
-  | 'R'
-  | 'T'
-  | 'Y'
-  | 'U'
-  | 'I'
-  | 'O'
-  | 'P'
-  | 'A'
-  | 'S'
-  | 'D'
-  | 'F'
-  | 'G'
-  | 'H'
-  | 'J'
-  | 'K'
-  | 'L'
-  | 'Z'
-  | 'X'
-  | 'C'
-  | 'V'
-  | 'B'
-  | 'N'
-  | 'M'
+  | 'ㅂ'
+  | 'ㅈ'
+  | 'ㄷ'
+  | 'ㄱ'
+  | 'ㅅ'
+  | 'ㅛ'
+  | 'ㅕ'
+  | 'ㅑ'
+  | 'ㅐ'
+  | 'ㅔ'
+  | 'ㅁ'
+  | 'ㄴ'
+  | 'ㅇ'
+  | 'ㄹ'
+  | 'ㅎ'
+  | 'ㅗ'
+  | 'ㅓ'
+  | 'ㅏ'
+  | 'ㅣ'
+  | 'ㅋ'
+  | 'ㅌ'
+  | 'ㅊ'
+  | 'ㅍ'
+  | 'ㅠ'
+  | 'ㅜ'
+  | 'ㅡ'
+  | 'ㅃ'
+  | 'ㅉ'
+  | 'ㄸ'
+  | 'ㄲ'
+  | 'ㅆ'
 
-export const getStatuses = (
-  guesses: string[]
-): { [key: string]: CharStatus } => {
-  const charObj: { [key: string]: CharStatus } = {}
-
-  guesses.forEach((word) => {
-    word.split('').forEach((letter, i) => {
-      if (!solution.includes(letter)) {
-        // make status absent
-        return (charObj[letter] = 'absent')
-      }
-
-      if (letter === solution[i]) {
-        //make status correct
-        return (charObj[letter] = 'correct')
-      }
-
-      if (charObj[letter] !== 'correct') {
-        //make status present
-        return (charObj[letter] = 'present')
-      }
+  export const getStatuses = (
+    guesses: string[]
+  ): { [key: string]: CharStatus } => {
+    const charObj: { [key: string]: CharStatus } = {}
+  
+    guesses.forEach((word) => {
+      word.split('').forEach((letter, i) => {
+        const l = Hangul.disassemble(letter)
+        const s = Hangul.disassemble(solution[i])
+        const sol = Hangul.disassemble(solution)
+     
+        if (sol.filter(x => l.includes(x)).length === 0) {
+          // make status absent
+          return (charObj[letter] = 'absent')
+        }
+  
+        if (s.filter(x => l.includes(x)).length === s.length) {
+          //make status correct
+          return (charObj[letter] = 'correct')
+        }
+  
+        // console.log(s.filter(x => l.includes(x)),l,s,charObj[letter] )
+  
+        if (charObj[letter] !== 'correct') {
+          //make status present
+          return (charObj[letter] = 'present')
+        }
+      })
     })
-  })
-
-  return charObj
-}
+    return charObj
+  }
 
 export const getGuessStatuses = (guess: string): CharStatus[] => {
+
   const splitSolution = solution.split('')
   const splitGuess = guess.split('')
 
@@ -65,6 +76,7 @@ export const getGuessStatuses = (guess: string): CharStatus[] => {
 
   const statuses: CharStatus[] = Array.from(Array(guess.length))
 
+  // console.log(Array.from(Array(guess.length)))
   // handle all correct cases first
   splitGuess.forEach((letter, i) => {
     if (letter === splitSolution[i]) {
@@ -77,26 +89,38 @@ export const getGuessStatuses = (guess: string): CharStatus[] => {
   splitGuess.forEach((letter, i) => {
     if (statuses[i]) return
 
-    if (!splitSolution.includes(letter)) {
+    const l = Hangul.disassemble(letter)
+    const s = Hangul.disassemble(solution[i])
+    const sol = Hangul.disassemble(solution)
+
+    
+
+    if(sol.filter(x => l.includes(x)).length === 0){
+    // if (!splitSolution.includes(letter)) {
       // handles the absent case
       statuses[i] = 'absent'
       return
-    }
-
-    // now we are left with "present"s
-    const indexOfPresentChar = splitSolution.findIndex(
-      (x, index) => x === letter && !solutionCharsTaken[index]
-    )
-
-    if (indexOfPresentChar > -1) {
-      statuses[i] = 'present'
-      solutionCharsTaken[indexOfPresentChar] = true
-      return
     } else {
-      statuses[i] = 'absent'
+      statuses[i] = 'present'
+      solutionCharsTaken[i] = true
       return
     }
+    console.log(solutionCharsTaken)
+    // now we are left with "present"s
+    // const indexOfPresentChar = splitSolution.findIndex(
+    //   (x, index) => x === letter && !solutionCharsTaken[index]
+    // )
+
+    // if (indexOfPresentChar > -1) {
+    //   statuses[i] = 'present'
+    //   solutionCharsTaken[indexOfPresentChar] = true
+    //   return
+    // } else {
+    //   statuses[i] = 'absent'
+    //   return
+    // }
   })
 
+  // console.log(statuses)
   return statuses
 }

@@ -19,7 +19,12 @@ import {
   WORD_NOT_FOUND_MESSAGE,
   CORRECT_WORD_MESSAGE,
 } from './constants/strings'
-import { isWordInWordList, isWinningWord, solution } from './lib/words'
+import {
+  isWordInWordList,
+  isWinningWord,
+  solution,
+  consonant,
+} from './lib/words'
 import { addStatsForCompletedGame, loadStats } from './lib/stats'
 import {
   loadGameStateFromLocalStorage,
@@ -27,6 +32,7 @@ import {
 } from './lib/localStorage'
 
 import './App.css'
+import * as Hangul from 'hangul-js'
 
 const ALERT_TIME_MS = 2000
 
@@ -41,6 +47,7 @@ function App() {
   const [isAboutModalOpen, setIsAboutModalOpen] = useState(false)
   const [isNotEnoughLetters, setIsNotEnoughLetters] = useState(false)
   const [isStatsModalOpen, setIsStatsModalOpen] = useState(false)
+  const [isShifted, setIsShifted] = useState(false)
   const [isWordNotFoundAlertOpen, setIsWordNotFoundAlertOpen] = useState(false)
   const [isGameLost, setIsGameLost] = useState(false)
   const [isDarkMode, setIsDarkMode] = useState(
@@ -103,8 +110,10 @@ function App() {
   }, [isGameWon, isGameLost])
 
   const onChar = (value: string) => {
-    if (currentGuess.length < 5 && guesses.length < 6 && !isGameWon) {
-      setCurrentGuess(`${currentGuess}${value}`)
+    if (currentGuess.length < 3 && guesses.length < 6 && !isGameWon) {
+      const h = Hangul.disassemble(`${currentGuess}${value}`)
+      const asm = Hangul.assemble(h)
+      setCurrentGuess(asm)
     }
   }
 
@@ -112,27 +121,39 @@ function App() {
     setCurrentGuess(currentGuess.slice(0, -1))
   }
 
+  const onShift = () => {
+    setIsShifted(!isShifted)
+  }
+
   const onEnter = () => {
     if (isGameWon || isGameLost) {
       return
     }
-    if (!(currentGuess.length === 5)) {
+    if (!(currentGuess.length === 3)) {
       setIsNotEnoughLetters(true)
       return setTimeout(() => {
         setIsNotEnoughLetters(false)
       }, ALERT_TIME_MS)
     }
 
-    if (!isWordInWordList(currentGuess)) {
-      setIsWordNotFoundAlertOpen(true)
+    // if (!isWordInWordList(currentGuess)) {
+    //   setIsWordNotFoundAlertOpen(true)
+    //   return setTimeout(() => {
+    //     setIsWordNotFoundAlertOpen(false)
+    //   }, ALERT_TIME_MS)
+    // }
+    // validguesses.ts, wordlist.ts를 검사하지 않는다.
+
+    if (!Hangul.isCompleteAll(currentGuess)) {
+      setIsNotEnoughLetters(true)
       return setTimeout(() => {
-        setIsWordNotFoundAlertOpen(false)
+        setIsNotEnoughLetters(false)
       }, ALERT_TIME_MS)
     }
 
     const winningWord = isWinningWord(currentGuess)
 
-    if (currentGuess.length === 5 && guesses.length < 6 && !isGameWon) {
+    if (currentGuess.length === 3 && guesses.length < 6 && !isGameWon) {
       setGuesses([...guesses, currentGuess])
       setCurrentGuess('')
 
@@ -152,7 +173,7 @@ function App() {
     <div className="py-8 max-w-7xl mx-auto sm:px-6 lg:px-8">
       <div className="flex w-80 mx-auto items-center mb-8 mt-12">
         <h1 className="text-xl grow font-bold dark:text-white">
-          {WORDLE_TITLE}
+          {/* {WORDLE_TITLE} */}초성힌트: {consonant}
         </h1>
         <SunIcon
           className="h-6 w-6 cursor-pointer dark:stroke-white"
@@ -172,7 +193,9 @@ function App() {
         onChar={onChar}
         onDelete={onDelete}
         onEnter={onEnter}
+        onShift={onShift}
         guesses={guesses}
+        isShifted={isShifted}
       />
       <InfoModal
         isOpen={isInfoModalOpen}

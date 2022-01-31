@@ -1,5 +1,6 @@
 import { WORDS } from '../constants/wordlist'
 import { VALIDGUESSES } from '../constants/validGuesses'
+import * as Hangul from 'hangul-js';
 
 export const isWordInWordList = (word: string) => {
   return (
@@ -19,12 +20,15 @@ export const getWordOfDay = () => {
   const msInDay = 86400000
   const index = Math.floor((now - epochMs) / msInDay)
   const nextday = (index + 1) * msInDay + epochMs
+  const solution = WORDS[index % WORDS.length].toUpperCase()
+  const h = Hangul.disassemble(solution,true)
 
   return {
-    solution: WORDS[index % WORDS.length].toUpperCase(),
+    solution: solution,
     solutionIndex: index,
     tomorrow: nextday,
+    consonant: h.map(function(value,index) { return value[0]; }),
   }
 }
 
-export const { solution, solutionIndex, tomorrow } = getWordOfDay()
+export const { solution, solutionIndex, tomorrow,consonant } = getWordOfDay()
