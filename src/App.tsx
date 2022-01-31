@@ -176,9 +176,9 @@ function App() {
 
   return (
     <div className="py-8 max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <div className="flex w-80 mx-auto items-center mb-8 mt-12">
+      <div className="flex w-80 mx-auto items-center mb-8">
         <h1 className="text-xl grow font-bold dark:text-white">
-          {/* {WORDLE_TITLE} */}초성힌트: {consonant}
+          우리말 Wordle
         </h1>
         <SunIcon
           className="h-6 w-6 cursor-pointer dark:stroke-white"
