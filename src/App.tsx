@@ -110,9 +110,14 @@ function App() {
   }, [isGameWon, isGameLost])
 
   const onChar = (value: string) => {
-    if (currentGuess.length < 3 && guesses.length < 6 && !isGameWon) {
-      const h = Hangul.disassemble(`${currentGuess}${value}`)
-      const asm = Hangul.assemble(h)
+    // console.log(currentGuess)
+    const h = Hangul.disassemble(`${currentGuess}${value}`)
+    const asm = Hangul.assemble(h)
+    if (
+      (currentGuess.length < 3 || asm.length < 4) &&
+      guesses.length < 6 &&
+      !isGameWon
+    ) {
       setCurrentGuess(asm)
     }
   }
