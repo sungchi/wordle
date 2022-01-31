@@ -90,7 +90,7 @@ export const getGuessStatuses = (guess: string): CharStatus[] => {
     if (statuses[i]) return
 
     const l = Hangul.disassemble(letter)
-    const s = Hangul.disassemble(solution[i])
+    // const s = Hangul.disassemble(solution[i])
     const sol = Hangul.disassemble(solution)
 
     

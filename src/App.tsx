@@ -11,7 +11,7 @@ import { AboutModal } from './components/modals/AboutModal'
 import { InfoModal } from './components/modals/InfoModal'
 import { StatsModal } from './components/modals/StatsModal'
 import {
-  WORDLE_TITLE,
+  // WORDLE_TITLE,
   WIN_MESSAGES,
   GAME_COPIED_MESSAGE,
   ABOUT_GAME_MESSAGE,
@@ -20,7 +20,7 @@ import {
   CORRECT_WORD_MESSAGE,
 } from './constants/strings'
 import {
-  isWordInWordList,
+  // isWordInWordList,
   isWinningWord,
   solution,
   consonant,
@@ -48,7 +48,7 @@ function App() {
   const [isNotEnoughLetters, setIsNotEnoughLetters] = useState(false)
   const [isStatsModalOpen, setIsStatsModalOpen] = useState(false)
   const [isShifted, setIsShifted] = useState(false)
-  const [isWordNotFoundAlertOpen, setIsWordNotFoundAlertOpen] = useState(false)
+  const [isWordNotFoundAlertOpen] = useState(false)
   const [isGameLost, setIsGameLost] = useState(false)
   const [isDarkMode, setIsDarkMode] = useState(
     localStorage.getItem('theme')
