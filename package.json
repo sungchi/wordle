@@ -1,6 +1,6 @@
 {
   "homepage": "https://plan9.kr/wordle/",
-  "name": "wordle",
+  "name": "kordle",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

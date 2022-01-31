@@ -105,7 +105,7 @@ export const getGuessStatuses = (guess: string): CharStatus[] => {
       solutionCharsTaken[i] = true
       return
     }
-    console.log(solutionCharsTaken)
+    // console.log(solutionCharsTaken)
     // now we are left with "present"s
     // const indexOfPresentChar = splitSolution.findIndex(
     //   (x, index) => x === letter && !solutionCharsTaken[index]
