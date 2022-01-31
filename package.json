@@ -1,4 +1,5 @@
 {
+  "homepage": "https://plan9.kr/wordle/",
   "name": "wordle",
   "version": "0.1.0",
   "private": true,
@@ -29,7 +30,9 @@
     "lint": "prettier --check src",
     "start": "react-scripts start",
     "test": "react-scripts test",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
