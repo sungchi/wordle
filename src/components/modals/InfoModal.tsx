@@ -8,43 +8,36 @@ type Props = {
 
 export const InfoModal = ({ isOpen, handleClose }: Props) => {
   return (
-    <BaseModal title="How to play" isOpen={isOpen} handleClose={handleClose}>
+    <BaseModal title="게임방법" isOpen={isOpen} handleClose={handleClose}>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        Guess the WORDLE in 6 tries. After each guess, the color of the tiles
-        will change to show how close your guess was to the word.
+        우리말 Wordle은 세 음절로 된 우리말 명사를 여섯번의 시도 안에 맞추는 게임입니다. 키보드에 표시되는 색은 자음, 모음을 분리해 검사합니다.
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
-        <Cell value="W" status="correct" />
-        <Cell value="E" />
-        <Cell value="A" />
-        <Cell value="R" />
-        <Cell value="Y" />
+        <Cell value="고" status="correct" />
+        <Cell value="양" />
+        <Cell value="이" />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        The letter W is in the word and in the correct spot.
+        '고'는 자음과 모음, 위치까지 모두 맞았습니다.
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
-        <Cell value="P" />
-        <Cell value="I" />
-        <Cell value="L" status="present" />
-        <Cell value="O" />
-        <Cell value="T" />
+        <Cell value="강" />
+        <Cell value="지" />
+        <Cell value="아" status="present" />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        The letter L is in the word but in the wrong spot.
+        '지'는 맞는 자모가 있으나 위치가 잘못되었습니다.
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
-        <Cell value="V" />
-        <Cell value="A" />
-        <Cell value="G" />
-        <Cell value="U" status="absent" />
-        <Cell value="E" />
+        <Cell value="화" />
+        <Cell value="분" status="absent" />
+        <Cell value="실" />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        The letter U is not in the word in any spot.
+        '분'의 자모는 답이 되는 단어에 존재하지 않습니다.
       </p>
     </BaseModal>
   )

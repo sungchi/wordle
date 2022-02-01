@@ -4,7 +4,7 @@ import { WORDLE_TITLE } from '../constants/strings'
 
 export const shareStatus = (guesses: string[], lost: boolean) => {
   navigator.clipboard.writeText(
-    `${WORDLE_TITLE} ${solutionIndex} ${lost ? 'X' : guesses.length}/6\n\n` +
+    `${WORDLE_TITLE} ${solutionIndex} ${lost ? 'X' : guesses.length}/6 \nhttps://plan9.kr/wordle/\n\n` +
       generateEmojiGrid(guesses)
   )
 }

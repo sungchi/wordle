@@ -42,26 +42,79 @@ export type CharValue =
   
     guesses.forEach((word) => {
       word.split('').forEach((letter, i) => {
-        const l = Hangul.disassemble(letter)
-        const s = Hangul.disassemble(solution[i])
-        const sol = Hangul.disassemble(solution)
-     
-        if (sol.filter(x => l.includes(x)).length === 0) {
-          // make status absent
-          return (charObj[letter] = 'absent')
-        }
-  
+        const l = Hangul.disassemble(letter) //입력 음절
+        const s = Hangul.disassemble(solution[i]) //답 음절
+        const sol = Hangul.disassemble(solution) // 전체 답
+        
+        l.map(function(a){
+          charObj[a] = 'absent'
+        });
+
+        l.filter(x => {
+          if(sol.includes(x)){
+            charObj[x] = 'present'
+          }
+        })
+
         if (s.filter(x => l.includes(x)).length === s.length) {
-          //make status correct
-          return (charObj[letter] = 'correct')
+          l.map(function(a){
+            charObj[a] = 'correct'
+          }); 
         }
-  
-        // console.log(s.filter(x => l.includes(x)),l,s,charObj[letter] )
-  
-        if (charObj[letter] !== 'correct') {
-          //make status present
-          return (charObj[letter] = 'present')
+        if(s[0]===l[0]){
+          charObj[s[0]] = 'correct' 
         }
+        if(s[1]===l[1]){
+          charObj[s[1]] = 'correct' 
+        }
+
+        if(s.length===3 && l.length===3){
+          if(s[2]===l[2]){
+            charObj[s[2]] = 'correct' 
+          }
+        }
+        if(s.length===4 && l.length===4){
+          if(s[2]===l[2]){
+            charObj[s[2]] = 'correct' 
+          }
+          if(s[3]===l[3]){
+            charObj[s[3]] = 'correct' 
+          }
+        }
+        if(s.length===5 && l.length===5){
+          if(s[1]===l[1]){
+            charObj[s[1]] = 'correct' 
+          }
+          if(s[2]===l[2]){
+            charObj[s[2]] = 'correct' 
+          }
+          if(s[3]===l[3]){
+            charObj[s[3]] = 'correct' 
+          }
+          if(s[4]===l[4]){
+            charObj[s[4]] = 'correct' 
+          }
+        }
+
+
+        // if (sol.filter(x => l.includes(x)).length === 0) {
+        //   // make status absent
+        //   return (charObj[letter] = 'absent')
+        // }
+  
+        // if (s.filter(x => l.includes(x)).length === s.length) {
+        //   //make status correct
+        //   return (charObj[letter] = 'correct')
+        // }
+  
+        // //s.map(function (a) { console.log(a) });
+        // // console.log(s.filter(x => l.includes(x)),l,s,charObj[letter] )
+  
+        // if (charObj[letter] !== 'correct') {
+        //   //make status present
+        //   return (charObj[letter] = 'present')
+        // }
+
       })
     })
     return charObj

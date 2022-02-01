@@ -7,22 +7,28 @@ type Props = {
 
 export const AboutModal = ({ isOpen, handleClose }: Props) => {
   return (
-    <BaseModal title="About" isOpen={isOpen} handleClose={handleClose}>
+    <BaseModal title="이 게임에 대하여" isOpen={isOpen} handleClose={handleClose}>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        This is an open source clone of the game Wordle -{' '}
-        <a
-          href="https://github.com/hannahcode/wordle"
+        이 게임은 오픈소스 wordle의 <a
+          href="https://github.com/sungchi/wordle"
           className="underline font-bold"
         >
-          check out the code here
-        </a>{' '}
-        and{' '}
+          fork 버전
+        </a>입니다.
+        {' '}
+        오리지널 게임은 {' '}
         <a
           href="https://www.powerlanguage.co.uk/wordle/"
           className="underline font-bold"
         >
-          play the original here
-        </a>
+          여기
+        </a>에서 플레이할 수 있습니다. 우리말 단어로 플레이하는 wordle에 대한 여러 아이디어로 큰 도움을 준 아내에게 깊은 감사를 드립니다.
+    
+        
+      </p>
+      <p></p>
+      <p className="pt-1 text-sm text-gray-500 dark:text-gray-300">
+      피드백: sungchi@plan9.kr
       </p>
     </BaseModal>
   )

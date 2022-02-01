@@ -179,14 +179,18 @@ function App() {
         <h1 className="text-xl grow font-bold dark:text-white">
           우리말 Wordle
         </h1>
+        <button
+          type="button"
+          className="pr-2 dark:text-white"
+          onClick={() => setIsInfoModalOpen(true)}
+        >
+          게임방법
+        </button>
         <SunIcon
-          className="h-6 w-6 cursor-pointer dark:stroke-white"
+          className="h-6 w-6 pr-2 cursor-pointer dark:stroke-white"
           onClick={() => handleDarkMode(!isDarkMode)}
         />
-        <InformationCircleIcon
-          className="h-6 w-6 cursor-pointer dark:stroke-white"
-          onClick={() => setIsInfoModalOpen(true)}
-        />
+
         <ChartBarIcon
           className="h-6 w-6 cursor-pointer dark:stroke-white"
           onClick={() => setIsStatsModalOpen(true)}
