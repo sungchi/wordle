@@ -54,6 +54,7 @@ export type CharValue =
           if(sol.includes(x)){
             return charObj[x] = 'present'
           }
+          return false
         })
 
         if (s.filter(x => l.includes(x)).length === s.length) {
