@@ -10,7 +10,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
   return (
     <BaseModal title="게임방법" isOpen={isOpen} handleClose={handleClose}>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        우리말 Wordle은 세 음절로 된 우리말 명사를 여섯번의 시도 안에 맞추는 게임입니다. 키보드에 표시되는 색은 자음, 모음을 분리해 검사합니다.
+        우리말 Wordle은 세 음절로 된 우리말 명사를 여섯번의 시도 안에 맞추는 게임입니다. 키보드에 표시되는 색은 자음, 모음을 분리해 검사합니다. (주의: ㄳ,ㅚ 등 겹낱사는 키보드에서 ㄱ,ㅅ,ㅗ,ㅣ로 분리해 검사)
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
