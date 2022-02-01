@@ -60,8 +60,8 @@ export const Keyboard = ({ onChar, onDelete, onEnter, onShift, guesses, isShifte
         <Key value="ㅛ" onClick={onClick} status={charStatuses['ㅛ']} />
         <Key value="ㅕ" onClick={onClick} status={charStatuses['ㅕ']} />
         <Key value="ㅑ" onClick={onClick} status={charStatuses['ㅑ']} />
-        <Key value="ㅐ" onClick={onClick} status={charStatuses['ㅐ']} />
-        <Key value="ㅔ" onClick={onClick} status={charStatuses['ㅔ']} />
+        <Key value="ㅒ" onClick={onClick} status={charStatuses['ㅒ']} />
+        <Key value="ㅖ" onClick={onClick} status={charStatuses['ㅖ']} />
       </div>
       <div className="flex justify-center mb-1">
         <Key value="ㅁ" onClick={onClick} status={charStatuses['ㅁ']} />
