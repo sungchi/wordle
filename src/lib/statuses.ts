@@ -45,7 +45,6 @@ export type CharValue =
         const l = Hangul.disassemble(letter) //입력 음절
         const s = Hangul.disassemble(solution[i]) //답 음절
         const sol = Hangul.disassemble(solution) // 전체 답
-        
         l.map(function(a){
           return charObj[a] = 'absent'
         });
@@ -57,7 +56,7 @@ export type CharValue =
           return false
         })
 
-        if (s.filter(x => l.includes(x)).length === s.length) {
+        if (s.filter(x => l.includes(x)).length === s.length && s.length === l.length) {
           l.map(function(a){
             return charObj[a] = 'correct'
           }); 
