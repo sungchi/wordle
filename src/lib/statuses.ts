@@ -47,18 +47,18 @@ export type CharValue =
         const sol = Hangul.disassemble(solution) // 전체 답
         
         l.map(function(a){
-          charObj[a] = 'absent'
+          return charObj[a] = 'absent'
         });
 
         l.filter(x => {
           if(sol.includes(x)){
-            charObj[x] = 'present'
+            return charObj[x] = 'present'
           }
         })
 
         if (s.filter(x => l.includes(x)).length === s.length) {
           l.map(function(a){
-            charObj[a] = 'correct'
+            return charObj[a] = 'correct'
           }); 
         }
         if(s[0]===l[0]){

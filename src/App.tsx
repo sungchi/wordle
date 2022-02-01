@@ -1,5 +1,5 @@
 import {
-  InformationCircleIcon,
+  // InformationCircleIcon,
   ChartBarIcon,
   SunIcon,
 } from '@heroicons/react/outline'
