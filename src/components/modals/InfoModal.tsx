@@ -28,7 +28,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         <Cell value="아" status="present" />
       </div>
       <p className="text-sm text-gray-500 dark:text-gray-300">
-        '지'는 맞는 자모가 있으나 위치가 잘못되었습니다.
+        '아'는 맞는 자모가 있으나 위치가 잘못되었습니다.
       </p>
 
       <div className="flex justify-center mb-1 mt-4">
