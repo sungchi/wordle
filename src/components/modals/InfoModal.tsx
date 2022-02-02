@@ -22,7 +22,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         <Cell value="음" status="correct" />
       </div>
       <p className="p-2 text-sm text-gray-500 dark:text-gray-300 text-left">
-        '볶'은 자음과 모음, 위치까지 모두 맞았습니다. '닭'은 일부 맞는 자모가 있으나 위치가 잘못되었습니다. '음'의 모든 자모는 답이 되는 단어에 존재하지 않습니다.
+        '음'은 자음과 모음, 위치까지 모두 맞았습니다. '닭'은 일부 맞는 자모가 있으나 위치가 잘못되었습니다. '볶'의 모든 자모는 답이 되는 단어에 존재하지 않습니다.
       </p>
       <h3 className='px-2 font-bold text-gray-500 dark:text-gray-300'>키보드 컬러 예시</h3>
       <div className="flex justify-center">
