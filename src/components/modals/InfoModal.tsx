@@ -11,7 +11,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
   return (
     <BaseModal title="게임방법" isOpen={isOpen} handleClose={handleClose}>
       <p className="p-2 text-sm text-gray-500 dark:text-gray-300 text-left">
-        세 음절로 된 우리말 명사를 입력해 맞추는 게임입니다. 6번의 기회가 주어지며 맞춰야 하는 단어에는 중복되는 자음, 모음이 없습니다. 
+        세 음절로 된 우리말 명사를 입력해 맞히는 게임입니다. 6번의 기회가 주어지며 정답 단어에는 중복되는 자음, 모음이 없습니다. 
       </p>
       
       <h3 className='px-2 font-bold text-gray-500 dark:text-gray-300'>입력칸 컬러 예시 (답이 '떼죽음'일 때)</h3>
