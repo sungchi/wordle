@@ -19,11 +19,7 @@ import {
   WORD_NOT_FOUND_MESSAGE,
   CORRECT_WORD_MESSAGE,
 } from './constants/strings'
-import {
-  // isWordInWordList,
-  isWinningWord,
-  solution,
-} from './lib/words'
+import { isWordInWordList, isWinningWord, solution } from './lib/words'
 import { addStatsForCompletedGame, loadStats } from './lib/stats'
 import {
   loadGameStateFromLocalStorage,
@@ -47,7 +43,7 @@ function App() {
   const [isNotEnoughLetters, setIsNotEnoughLetters] = useState(false)
   const [isStatsModalOpen, setIsStatsModalOpen] = useState(false)
   const [isShifted, setIsShifted] = useState(false)
-  const [isWordNotFoundAlertOpen] = useState(false)
+  const [isWordNotFoundAlertOpen, setIsWordNotFoundAlertOpen] = useState(false)
   const [isGameLost, setIsGameLost] = useState(false)
   const [isDarkMode, setIsDarkMode] = useState(
     localStorage.getItem('theme')
@@ -140,12 +136,12 @@ function App() {
       }, ALERT_TIME_MS)
     }
 
-    // if (!isWordInWordList(currentGuess)) {
-    //   setIsWordNotFoundAlertOpen(true)
-    //   return setTimeout(() => {
-    //     setIsWordNotFoundAlertOpen(false)
-    //   }, ALERT_TIME_MS)
-    // }
+    if (!isWordInWordList(currentGuess)) {
+      setIsWordNotFoundAlertOpen(true)
+      return setTimeout(() => {
+        setIsWordNotFoundAlertOpen(false)
+      }, ALERT_TIME_MS)
+    }
     // validguesses.ts, wordlist.ts를 검사하지 않는다.
 
     if (!Hangul.isCompleteAll(currentGuess)) {
