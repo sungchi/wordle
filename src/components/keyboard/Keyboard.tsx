@@ -37,7 +37,8 @@ export const Keyboard = ({ onChar, onDelete, onEnter, onShift, guesses, isShifte
         onDelete()
       } else {
         const key = e.key.toUpperCase()
-        if (key.length === 1 && key >= 'A' && key <= 'Z') {
+        const korean = /[ㄱ-ㅎ|ㅏ-ㅣ]/;
+        if (key.length === 1 && korean.test(key)) {
           onChar(key)
         }
       }

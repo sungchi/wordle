@@ -118,7 +118,9 @@ function App() {
   }
 
   const onDelete = () => {
-    setCurrentGuess(currentGuess.slice(0, -1))
+    const h = Hangul.disassemble(`${currentGuess}`).slice(0, -1)
+    const asm = Hangul.assemble(h)
+    setCurrentGuess(asm)
   }
 
   const onShift = () => {
