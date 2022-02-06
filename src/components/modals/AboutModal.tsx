@@ -22,7 +22,12 @@ export const AboutModal = ({ isOpen, handleClose }: Props) => {
           className="underline font-bold"
         >
           여기
-        </a>에서 플레이할 수 있습니다. 우리말 단어로 플레이하는 wordle에 대한 여러 아이디어로 큰 도움을 준 아내에게 깊은 감사를 드립니다.
+        </a>에서 플레이할 수 있습니다. 게임에서 사용하는 단어는 {' '} 
+        <a
+          href="https://opendict.korean.go.kr/"
+          className="underline font-bold"
+        >국립국어원 우리말샘</a>
+        의 전문가 감수 단어를 내려받아 사용합니다. 우리말 단어로 플레이하는 wordle에 대한 여러 아이디어로 큰 도움을 준 아내에게 깊은 감사를 드립니다.
     
         
       </p>
