@@ -195,6 +195,41 @@ function App() {
         />
       </div>
       <Grid guesses={guesses} currentGuess={currentGuess} />
+      {/* <ul className="flex divide-x divide-gray-200 shadow sm:flex dark:divide-gray-700 mb-2">
+    <li className="w-full">
+        <a href="#" className="inline-block relative py-2 px-2 w-full text-sm font-medium text-center text-gray-900 bg-gray-100 focus:ring-4 focus:ring-blue-300 focus:z-20 active dark:bg-gray-700 dark:text-white" aria-current="page">
+          전체
+          </a>
+    </li>
+    <li className="w-full">
+        <a href="#" className="inline-block relative py-2 px-2 w-full text-sm font-medium text-center text-gray-500 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:z-20 dark:text-gray-400 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
+          1번
+          </a>
+    </li>
+    <li className="w-full">
+        <a href="#" className="inline-block relative py-2 px-2 w-full text-sm font-medium text-center text-gray-500 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:z-20 dark:text-gray-400 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
+          2번
+          </a>
+    </li>
+    <li className="w-full">
+        <a href="#" className="inline-block relative py-2 px-2 w-full text-sm font-medium text-center text-gray-500 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:z-20 dark:text-gray-400 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
+          3번
+          </a>
+    </li>
+    <li className="w-full">
+        <a href="#" className="inline-block relative py-2 px-2 w-full text-sm font-medium text-center text-gray-500 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:z-20 dark:text-gray-400 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
+          4번
+          </a>
+    </li>
+    <li className="w-full">
+        <a href="#" className="inline-block relative py-2 px-2 w-full text-sm font-medium text-center text-gray-500 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:z-20 dark:text-gray-400 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
+          5번
+          </a>
+    </li>
+    <li className="w-full cursor-not-allowed inline-block relative py-2 px-2 w-full text-sm font-medium text-center text-gray-500 bg-white hover:text-gray-700 hover:bg-gray-50 focus:ring-4 focus:ring-blue-300 focus:z-20 dark:text-gray-400 dark:hover:text-white dark:bg-gray-800 dark:hover:bg-gray-700 dark:text-white">
+        6번
+    </li>
+</ul> */}
       <Keyboard
         onChar={onChar}
         onDelete={onDelete}
