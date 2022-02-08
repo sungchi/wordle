@@ -40,7 +40,7 @@ export const InfoModal = ({ isOpen, handleClose }: Props) => {
         <Key value="ㅁ" onClick={() => void 0} status="correct" />
       </div> 
       <p className="p-2 text-sm text-gray-500 dark:text-gray-300 text-left">
-        키보드에 표시되는 색은 입력된 단어의 자음, 모음을 분리해 검사한 결과입니다. 쌍자음과 달리 키보드에 없는 ㄳ,ㅚ 등 겹낱자는 ㄱ,ㅅ,ㅗ,ㅣ와 같이 분리해 검사합니다.
+        키보드에 표시되는 색은 입력된 단어의 자음, 모음을 분리해 검사한 결과입니다. (중복된 자모는 뒤엣것을 사용) 쌍자음과 달리 키보드에 없는 ㄳ,ㅚ 등 겹낱자는 ㄱ,ㅅ,ㅗ,ㅣ와 같이 분리해 검사합니다.
       </p>
     </BaseModal>
   )
