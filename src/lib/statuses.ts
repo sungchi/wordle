@@ -98,6 +98,22 @@ export type CharValue =
           }
         }
 
+        const lst = l[l.length-1]
+        const lst2 = l[l.length-2]
+        const st = s[s.length-1]
+        const st2 = s[s.length-2]
+        if(Hangul.isConsonant(lst)){
+          if(st === lst){
+            charObj[st] = 'correct' 
+          }
+          if(Hangul.isConsonant(lst2)){
+            if(st2 === lst2){
+              charObj[st2] = 'correct' 
+            }
+            
+          } 
+        }
+
 
         // if (sol.filter(x => l.includes(x)).length === 0) {
         //   // make status absent
