@@ -5,8 +5,7 @@ export const GAME_COPIED_MESSAGE = '결과가 클립보드에 복사되었습니
 export const ABOUT_GAME_MESSAGE = '이 게임에 대하여'
 export const NOT_ENOUGH_LETTERS_MESSAGE = '단어를 완성해주세요.'
 export const WORD_NOT_FOUND_MESSAGE = '3음절로 된 명사를 입력해주세요.'
-export const CORRECT_WORD_MESSAGE = (solution: string) =>
-  `답: ${solution}`
+export const CORRECT_WORD_MESSAGE = (solution: string) => `답: ${solution}`
 export const ENTER_TEXT = '입력'
 export const DELETE_TEXT = '삭제'
 export const SHIFT_TEXT = '⇧'
