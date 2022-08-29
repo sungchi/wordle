@@ -40,7 +40,14 @@ export const AboutModal = ({ isOpen, handleClose }: Props) => {
       </p>
       <p></p>
       <p className="pt-1 text-sm text-gray-500 dark:text-gray-300">
-        피드백: sungchi@plan9.kr
+        피드백:{' '}
+        <a href="mailto:sungchi@plan9.kr" className="underline">
+          sungchi@plan9.kr
+        </a>
+        ,{' '}
+        <a href="https://plan9.kr" className="underline">
+          plan9.kr
+        </a>
       </p>
     </BaseModal>
   )
