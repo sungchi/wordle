@@ -266,6 +266,16 @@ function App() {
       >
         {ABOUT_GAME_MESSAGE}
       </button>
+      <p className="flex   dark:text-white items-center mt-3 text-xs">
+        <a
+          href="https://junja10.com"
+          target="_blank"
+          className="mx-auto"
+          rel="noreferrer"
+        >
+          할인 전자제품 보기 → <span className="underline">junja10.com</span>
+        </a>
+      </p>
 
       <Alert message={NOT_ENOUGH_LETTERS_MESSAGE} isOpen={isNotEnoughLetters} />
       <Alert
