@@ -268,12 +268,12 @@ function App() {
       </button>
       <p className="flex   dark:text-white items-center mt-3 text-xs">
         <a
-          href="https://junja10.com"
+          href="https://link.coupang.com/a/bej9kV"
           target="_blank"
           className="mx-auto"
           rel="noreferrer"
         >
-          할인 전자제품 보기 → <span className="underline">junja10.com</span>
+          쿠팡특가 골드박스 →
         </a>
       </p>
 
