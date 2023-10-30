@@ -273,7 +273,7 @@ function App() {
           className="mx-auto"
           rel="noreferrer"
         >
-          쿠팡특가 골드박스 →
+          쿠팡특가 골드박스 → 
         </a>
       </p>
 
