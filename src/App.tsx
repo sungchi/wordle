@@ -268,12 +268,12 @@ function App() {
       </button>
       <p className="flex   dark:text-white items-center mt-3 text-xs">
         <a
-          href="https://link.coupang.com/a/bej9kV"
+          href="https://plan9.kr/wordle2/"
           target="_blank"
           className="mx-auto"
           rel="noreferrer"
         >
-          쿠팡특가 골드박스 → 
+          우리말 Wordle2 → 
         </a>
       </p>
 
