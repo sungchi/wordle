@@ -269,7 +269,6 @@ function App() {
       <p className="flex   dark:text-white items-center mt-3 text-xs">
         <a
           href="https://plan9.kr/wordle2/"
-          target="_blank"
           className="mx-auto"
           rel="noreferrer"
         >
