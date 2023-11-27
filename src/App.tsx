@@ -173,7 +173,7 @@ function App() {
 
   return (
     <div className="py-8 max-w-7xl mx-auto sm:px-6 lg:px-8">
-      <div className="flex w-80 mx-auto items-center mb-8">
+      <div className="flex w-80 mx-auto items-center mb-4">
         <h1 className="text-xl grow font-bold dark:text-white">
           우리말 Wordle
         </h1>
@@ -194,6 +194,15 @@ function App() {
           onClick={() => setIsStatsModalOpen(true)}
         />
       </div>
+       <p className="flex   dark:text-white items-center mt-2 mb-2 text-xs">
+        <a
+          href="https://plan9.kr/wordle2/"
+          className="mx-auto"
+          rel="noreferrer"
+        >
+          우리말 Wordle2 → 
+        </a>
+      </p>
       <Grid guesses={guesses} currentGuess={currentGuess} />
       {/* <ul className="flex divide-x divide-gray-200 shadow sm:flex dark:divide-gray-700 mb-2">
     <li className="w-full">
@@ -266,15 +275,7 @@ function App() {
       >
         {ABOUT_GAME_MESSAGE}
       </button>
-      <p className="flex   dark:text-white items-center mt-3 text-xs">
-        <a
-          href="https://plan9.kr/wordle2/"
-          className="mx-auto"
-          rel="noreferrer"
-        >
-          우리말 Wordle2 → 
-        </a>
-      </p>
+     
 
       <Alert message={NOT_ENOUGH_LETTERS_MESSAGE} isOpen={isNotEnoughLetters} />
       <Alert
